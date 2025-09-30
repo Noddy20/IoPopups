@@ -27,11 +27,13 @@ class SnackbarIo(
     }
 
     private fun initPopupWindow() = launchOnIoDispatcher {
-        val popupViewBinding = SnackbarLayoutBinding.inflate(LayoutInflater.from(context))
-        binding = popupViewBinding
-        popupWindow = AsyncPopupWindow(context).apply {
-            setContentView(binding.root)
-        }
+        popupWindow = AsyncPopupWindow(context)
+        binding = SnackbarLayoutBinding.inflate(
+            LayoutInflater.from(context),
+            popupWindow.popupView,
+            true
+        )
+        popupWindow.setContentView(binding.root)
     }
 
     fun show(

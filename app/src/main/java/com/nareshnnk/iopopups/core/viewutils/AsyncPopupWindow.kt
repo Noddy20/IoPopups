@@ -18,7 +18,7 @@ class AsyncPopupWindow(context: Context) {
     private val windowManager by lazyNoneSynchronized {
         context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
     }
-    private val popupView by lazyNoneSynchronized {
+    val popupView by lazyNoneSynchronized {
         FrameLayout(context).apply {
             setBackgroundColor(Color.TRANSPARENT)
         }
@@ -52,7 +52,7 @@ class AsyncPopupWindow(context: Context) {
         if (isShowing) return
 
         val params = WindowManager.LayoutParams().apply {
-            width = WindowManager.LayoutParams.WRAP_CONTENT
+            width = WindowManager.LayoutParams.MATCH_PARENT
             height = WindowManager.LayoutParams.WRAP_CONTENT
             this.gravity = gravity
             this.x = x

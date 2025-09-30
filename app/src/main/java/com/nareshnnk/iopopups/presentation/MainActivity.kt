@@ -9,6 +9,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private lateinit var snackbar: SnackbarIo
+    private lateinit var stickySnackbar: SnackbarIo
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -19,14 +22,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupSnackbar() {
-        val snackbar = SnackbarIo(this, this)
+        snackbar = SnackbarIo(this, this)
         binding.snackbarButton.setOnClickListener {
             snackbar.show(binding.root, "Hello from SnackbarIo!")
         }
     }
 
     private fun setupStickySnackbar() {
-        val stickySnackbar = SnackbarIo(this, this)
+        stickySnackbar = SnackbarIo(this, this)
         binding.snackbarStickyButton.setOnClickListener {
             stickySnackbar.showSticky(
                 binding.root,
@@ -34,5 +37,11 @@ class MainActivity : AppCompatActivity() {
                 "Close"
             )
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        snackbar.dismiss(0)
+        stickySnackbar.dismiss(0)
     }
 }
