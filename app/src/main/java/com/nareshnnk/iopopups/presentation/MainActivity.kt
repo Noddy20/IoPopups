@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.nareshnnk.iopopups.databinding.ActivityMainBinding
 import com.nareshnnk.iopopups.presentation.customviews.SnackbarIo
+import com.nareshnnk.iopopups.presentation.customviews.ToastIo
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,6 +13,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var snackbar: SnackbarIo
     private lateinit var stickySnackbar: SnackbarIo
 
+    private lateinit var toast: ToastIo
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -19,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         setupSnackbar()
         setupStickySnackbar()
+        setupToast()
     }
 
     private fun setupSnackbar() {
@@ -36,6 +40,13 @@ class MainActivity : AppCompatActivity() {
                 "This is a sticky SnackbarIo! Tap close to dismiss.",
                 "Close"
             )
+        }
+    }
+
+    private fun setupToast() {
+        toast = ToastIo(this, this)
+        binding.toastButton.setOnClickListener {
+            toast.show(binding.root, "Hello from ToastIo!")
         }
     }
 

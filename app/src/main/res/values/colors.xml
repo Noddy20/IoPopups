@@ -5,4 +5,5 @@
 
     <color name="colorGreen">#00C979</color>
     <color name="colorRed">#FF3447</color>
+    <color name="colorTransparentBlack">#88000000</color>
 </resources>
