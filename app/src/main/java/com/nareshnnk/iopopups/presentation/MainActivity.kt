@@ -3,6 +3,7 @@ package com.nareshnnk.iopopups.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.nareshnnk.iopopups.databinding.ActivityMainBinding
+import com.nareshnnk.iopopups.presentation.customviews.PopupIo
 import com.nareshnnk.iopopups.presentation.customviews.SnackbarIo
 import com.nareshnnk.iopopups.presentation.customviews.ToastIo
 
@@ -15,6 +16,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var toast: ToastIo
 
+    private lateinit var popupIo: PopupIo
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -23,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         setupSnackbar()
         setupStickySnackbar()
         setupToast()
+        setupPopup()
     }
 
     private fun setupSnackbar() {
@@ -50,9 +54,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupPopup() {
+        popupIo = PopupIo(this, this)
+        binding.popupButton.setOnClickListener {
+            popupIo.show(binding.root)
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         snackbar.dismiss(0)
         stickySnackbar.dismiss(0)
+        toast.dismiss(0)
+        popupIo.dismiss()
     }
 }

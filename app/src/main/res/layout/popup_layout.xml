@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="32dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Counter Popup"
+            android:id="@+id/title"
+            tools:ignore="HardcodedText"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:padding="12dp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:id="@+id/divider"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            android:background="@color/colorTransparentBlack"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="24sp"
+            android:id="@+id/decrementButton"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/counter"
+            tools:ignore="HardcodedText"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="1"
+            android:id="@+id/counter"
+            tools:ignore="HardcodedText"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintStart_toEndOf="@id/decrementButton"
+            app:layout_constraintEnd_toStartOf="@id/incrementButton"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:padding="12dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="32dp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="24sp"
+            android:id="@+id/incrementButton"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/counter"
+            tools:ignore="HardcodedText"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="32dp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/closeButton"
+            app:layout_constraintTop_toBottomOf="@id/decrementButton"
+            android:layout_marginTop="32dp"
+            android:theme="@style/ThemeOverlay.Material3.Button.ElevatedButton"
+            android:text="Close"
+            tools:ignore="HardcodedText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
