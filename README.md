@@ -4,6 +4,10 @@
 
 This Android project serves as a comprehensive **demonstration and proof-of-concept** for safely displaying and updating custom Android UI elements, specifically a `PopupWindow`, entirely from a dedicated **Worker (IO) Thread** without causing application crashes.
 
+### Screen Recording
+
+[Screen_recording_20251001_192913.webm](https://github.com/user-attachments/assets/df8c101e-4650-4744-a6c9-546c2cb4685c)
+
 ***
 
 ## 💡 The Problem & The Insight
